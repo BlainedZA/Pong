@@ -3,13 +3,9 @@ using System.Collections;
 
 public class PlayerControls : MonoBehaviour {
 
-	public KeyCode moveUp;
-	public KeyCode moveDown;
-
-	public float speed = 10;
+	public float speed = 10f;
 
 	private Rigidbody2D rigBody;
-
 
 	void Awake ()
     {
@@ -18,15 +14,14 @@ public class PlayerControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-
-		if (Input.GetKey(moveUp))
+	
+		if ((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow)))
         {
-			rigBody.velocity = new Vector2(0, speed);
+			rigBody.velocity = new Vector2(-speed, 0);
         }
-		else if (Input.GetKey(moveDown))
-        {
-			rigBody.velocity = new Vector2(0, -speed);
+		else if ((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow)))
+		{
+			rigBody.velocity = new Vector2(speed, 0);
 		}
 		else
         {
